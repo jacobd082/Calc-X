@@ -136,7 +136,8 @@ const createWindow = () => {
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false
-      }
+      },
+      icon: 'icons/icon.png'
     })
     win.setBackgroundColor("black")
     win.loadFile('index.html')
