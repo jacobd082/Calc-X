@@ -20,6 +20,16 @@ let menuTemplate = [
                 }
             },
             {
+                label: 'Engine',
+                click: () => {
+                    const win = new BrowserWindow({
+                        width: 800,
+                        height: 600
+                    })
+                    win.loadFile('pages/engine.htm')
+                }
+            },
+            {
                 role: "quit"
             }
         ]
