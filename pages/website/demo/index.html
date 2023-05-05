@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc X</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+  <script type="module" crossorigin src="assets/index-efe85471.js"></script>
+</head>
+<body>
+    <h1>Calc X Demo</h1>
+    <div style="max-width: 500px;border: 2px rgb(49, 49, 49) solid;padding: 5px;border-radius: 20px;min-height: 500px;">
+            <div>
+            <input id="in" onsubmit="solve(document.getElementById('in').value)" style="background-color: inherit;color:white;border: none;width: 100%;" autofocus placeholder="Type an equation...">
+            <hr>
+            </div>
+            <div id="results">
+                <div style="background-color: rgb(21, 21, 21);color: rgb(200, 200, 200);font-size: x-small;">
+                    <p>Calc X is Created by Jacob Drath. Copyright (c) 2023 Jacob Drath.</p>
+                </div>
+            </div>
+    </div>
+    <p>Please note that this is a demo and not all features are available.</p>
+    
+</body>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+    }
+    h1, h2 {
+        font-family: 'Manrope', sans-serif;
+    }
+    textarea:focus, input:focus{
+    outline: none;
+}
+
+</style>
+</html>

@@ -13,7 +13,9 @@ function formatNumber(number) {
 let ans = "0"
 
 function solve(expr) {
+    expr = expr.toLowerCase()
     expr = expr.replaceAll("ans","("+ans+")")
+    expr = expr.replaceAll("π","(pi)")
     try {
     done(formatNumber(math.evaluate(expr)), false)
     } catch(err) {
@@ -21,12 +23,12 @@ function solve(expr) {
     }
     
     function done(re, isError) {
-    ans = re
     if (isError) {
         document.getElementById("results").innerHTML='<p style="margin:0;color:orange;">'+expr+'</p><p style="font-size: 20px;margin:0;">'+re+'</p><hr style="border-color:gray;">' + document.getElementById("results").innerHTML
         return
     }
     document.getElementById("results").innerHTML='<p style="margin:0;">'+expr+'</p><p style="font-size: 25px;margin:0;">'+re+'</p><hr style="border-color:gray;">' + document.getElementById("results").innerHTML
+    ans = re
     }
 }
 // Get the input field
