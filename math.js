@@ -6,16 +6,29 @@
 
 const math = require('mathjs')
 
+
 function formatNumber(number) {
     return parseFloat(parseFloat(number).toPrecision(12))
 }
 
 let ans = "0"
 
+
 function solve(expr) {
     expr = expr.toLowerCase()
     expr = expr.replaceAll("ans","("+ans+")")
     expr = expr.replaceAll("π","(pi)")
+    if (expr.startsWith("graph:")) {
+        sessionStorage.setItem("graph.equation", expr.replace("graph:",""))
+        window.open("graph.html")
+        expr = expr.replace("graph:","")
+        try {
+            done(formatNumber(math.evaluate(expr)), false)
+        } catch(err) {
+            done("Graphed", false)
+        }
+        return
+    }
     try {
     done(formatNumber(math.evaluate(expr)), false)
     } catch(err) {

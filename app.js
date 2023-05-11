@@ -102,6 +102,16 @@ let menuTemplate = [
     {
         role: 'window',
         submenu: [
+            {
+                label: 'Graph',
+                click: () => {
+                    const win = new BrowserWindow({
+                        width: 800,
+                        height: 600
+                    })
+                    win.loadFile('graph.html')
+                }
+            },
            {
               role: 'minimize'
            },
