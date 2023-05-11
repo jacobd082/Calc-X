@@ -69,3 +69,10 @@ solve(document.getElementById("in").value)
 input.select()
 }
 });
+
+input.addEventListener("input", function() {
+    if (input.value=="+") input.value="ans+"
+    if (input.value=="-") input.value="ans-"
+    if (input.value=="*") input.value="ans*"
+    if (input.value=="/") input.value="ans/"
+})

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, MenuItem } = require('electron')
+const { app, BrowserWindow, Menu, MenuItem, ipcMain } = require('electron')
 const path = require('path')
 
 
@@ -17,16 +17,6 @@ let menuTemplate = [
                 label: 'Toggle Developer Tools',
                 click (item, focusedWindow) {
                   if (focusedWindow) focusedWindow.webContents.toggleDevTools()
-                }
-            },
-            {
-                label: 'Engine',
-                click: () => {
-                    const win = new BrowserWindow({
-                        width: 800,
-                        height: 600
-                    })
-                    win.loadFile('pages/engine.htm')
                 }
             },
             {
@@ -82,6 +72,12 @@ let menuTemplate = [
                 click: (nsp, window) => {
                     window.loadURL('javascript:setValue("sqrt(")')
                 }
+            },
+            {
+                label: 'Absolute Value',
+                click: (nsp, window) => {
+                    window.loadURL('javascript:setValue("abs(")')
+                }
             }
         ]
     },
@@ -125,16 +121,6 @@ let menuTemplate = [
         submenu: [
             {role:'about'},
             {
-                label: 'Functions',
-                click: () => {
-                    const win = new BrowserWindow({
-                        width: 800,
-                        height: 600
-                    })
-                    win.loadFile('pages/functions.htm')
-                }
-            },
-            {
                 label: 'Conversions',
                 click: () => {
                     const win = new BrowserWindow({
@@ -142,6 +128,26 @@ let menuTemplate = [
                         height: 600
                     })
                     win.loadFile('pages/conv.htm')
+                }
+            },
+            {
+                label: 'Graphing',
+                click: () => {
+                    const win = new BrowserWindow({
+                        width: 800,
+                        height: 600
+                    })
+                    win.loadFile('pages/graph.htm')
+                }
+            },
+            {
+                label: 'Engine',
+                click: () => {
+                    const win = new BrowserWindow({
+                        width: 800,
+                        height: 600
+                    })
+                    win.loadFile('pages/engine.htm')
                 }
             }
         ]
@@ -175,5 +181,24 @@ app.whenReady().then(() => {
   })
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
+    //if (process.platform !== 'darwin') app.quit()
+    const win = new BrowserWindow({
+        width: 300,
+        height: 180,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        },
+        backgroundColor: 'black',
+        icon: 'icons/icon.png'
+    })
+    win.loadFile('quit.html')
 })
+
+ipcMain.on('quit-app', () => {
+    app.quit();
+});
+
+ipcMain.on('dont-quit', () => {
+    createWindow()
+});
