@@ -11,8 +11,7 @@
 </body>
 <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
 <script>
-
-func = sessionStorage.getItem("graph.equation")
+  func = sessionStorage.getItem("graph.equation")
 
 functionPlot({
   target: '#canvas',
@@ -24,6 +23,5 @@ functionPlot({
     fn: func
   }]
 })
-
 </script>
 </html>

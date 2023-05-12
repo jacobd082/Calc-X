@@ -5,7 +5,7 @@
 
 
 const math = require('mathjs')
-
+const { ipcRenderer } = require('electron');
 
 function formatNumber(number) {
     return parseFloat(parseFloat(number).toPrecision(12))
@@ -22,6 +22,16 @@ function solve(expr) {
         sessionStorage.setItem("graph.equation", expr.replace("graph:",""))
         window.open("graph.html")
         expr = expr.replace("graph:","")
+        try {
+            done(formatNumber(math.evaluate(expr)), false)
+        } catch(err) {
+            done("Graphed", false)
+        }
+        return
+    } else if (expr.startsWith("g:")) {
+        sessionStorage.setItem("graph.equation", expr.replace("g:",""))
+        window.open("graph.html")
+        expr = expr.replace("g:","")
         try {
             done(formatNumber(math.evaluate(expr)), false)
         } catch(err) {
