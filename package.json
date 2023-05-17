@@ -6,6 +6,7 @@
   "main": "app.js",
   "author": "Jacob Drath",
   "license": "ISC",
+  "repository": "https://github.com/jacobd082/Calc-X",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -22,7 +23,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "mathjs": "^11.8.0"
+    "mathjs": "^11.8.0",
+    "update-electron-app": "^2.0.1"
   },
   "build": {
     "appId": "calc-z.jacobdrath",

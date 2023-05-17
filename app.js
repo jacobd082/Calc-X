@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu, MenuItem, ipcMain } = require('electron')
 const path = require('path')
 
+// Updater
+require('update-electron-app')()
 
 let menuTemplate = [
     {
