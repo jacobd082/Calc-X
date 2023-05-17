@@ -190,7 +190,12 @@ app.on('window-all-closed', () => {
             contextIsolation: false
         },
         backgroundColor: 'black',
-        icon: 'icons/icon.png'
+        icon: 'icons/icon.png',
+        maximizable: false,
+        minimizable: false,
+        fullscreenable: false,
+        resizable: false,
+        movable: false
     })
     win.loadFile('quit.html')
 })
@@ -203,17 +208,3 @@ ipcMain.on('dont-quit', () => {
     createWindow()
 });
 
-
-ipcMain.on('open-graph', () => {
-    const win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        },
-        backgroundColor: 'black'
-    })
-    win.loadFile('graph.html')
-
-});

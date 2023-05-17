@@ -1,7 +1,7 @@
 {
   "name": "calc-x",
   "productName": "Calc X",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Modern Calculator Application",
   "main": "app.js",
   "author": "Jacob Drath",
