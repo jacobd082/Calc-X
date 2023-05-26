@@ -13,11 +13,11 @@ function formatNumber(number) {
 
 let ans = "0"
 
-function deleteResult(element) {
-    element.remove();
-}  
 
 function solve(expr) {
+    if (expr.trim()=="") {
+        return
+    }
     expr = expr.toLowerCase()
     expr = expr.replaceAll("ans","("+ans+")")
     expr = expr.replaceAll("π","(pi)")
@@ -50,10 +50,10 @@ function solve(expr) {
     
     function done(re, isError) {
     if (isError) {
-        document.getElementById("results").innerHTML='<div class="result-div"><button class="delete-button" onclick="deleteResult(this.parentNode)"><img src="icons/delete.png" width="10px" alt="Delete"></button><p style="margin: 0;color: orange;">'+expr+'</p><p style="font-size: 25px; margin: 0;">'+re+'</p><hr style="border-color: gray;"></div>' + document.getElementById("results").innerHTML
+        document.getElementById("results").innerHTML='<div class="result-div"><button class="delete-button" onclick="this.parentNode.remove()"><img src="icons/delete.png" width="10px" alt="Delete"></button><p style="margin: 0;color: orange;">'+expr+'</p><p style="font-size: 25px; margin: 0;">'+re+'</p><hr style="border-color: gray;"></div>' + document.getElementById("results").innerHTML
         return
     }
-    document.getElementById("results").innerHTML='<div class="result-div"><button class="delete-button" onclick="deleteResult(this.parentNode)"><img src="icons/delete.png" width="10px" alt="Delete"></button><p style="margin: 0;color: #d9d9d9;">'+expr+'</p><p style="font-size: 25px; margin: 0;">'+re+'</p><hr style="border-color: gray;"></div>' + document.getElementById("results").innerHTML
+    document.getElementById("results").innerHTML='<div class="result-div"><button class="delete-button" onclick="this.parentNode.remove()"><img src="icons/delete.png" width="10px" alt="Delete"></button><p style="margin: 0;color: #d9d9d9;">'+expr+'</p><p style="font-size: 25px; margin: 0;">'+re+'</p><hr style="border-color: gray;"></div>' + document.getElementById("results").innerHTML
     ans = re
     }
 }
