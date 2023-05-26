@@ -129,7 +129,7 @@ let menuTemplate = [
                         width: 800,
                         height: 600
                     })
-                    win.loadFile('pages/conv.htm')
+                    win.loadFile('docs/web/help/conv.htm')
                 }
             },
             {
@@ -139,7 +139,7 @@ let menuTemplate = [
                         width: 800,
                         height: 600
                     })
-                    win.loadFile('pages/graph.htm')
+                    win.loadFile('docs/web/help/graph.htm')
                 }
             },
             {
