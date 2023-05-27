@@ -21,12 +21,14 @@
         </table>
     </nav>
     <div style="height: 160px;"></div>
-    <img src="icon.png" height="100px">
-    <h1>The simplest calculator app.</h1>
-    <p>Calc X is an open-source, free calculator app for MacOS, Windows, Linux, and the web.</p><br>
-    <!-- <a href="download.htm" style="text-decoration: none; color: rgb(65, 97, 255);background-color: white;padding: 10px;">Download</a>
-    &nbsp; -->
-    <a href="web/" style="text-decoration: none; color: white;background-color: rgb(65, 97, 255);padding: 10px;">Open in Web Browser</a>
+    <div style="padding: 20px;">
+        <img src="icon.png" height="100px">
+        <h1>The simplest calculator app.</h1>
+        <p>Calc X is an open-source, free calculator app for MacOS, Windows, Linux, and the web.</p><br>
+        <!-- <a href="download.htm" style="text-decoration: none; color: rgb(65, 97, 255);background-color: white;padding: 10px;">Download</a>
+        &nbsp; -->
+        <a href="web/" style="text-decoration: none; color: white;background-color: rgb(65, 97, 255);padding: 10px;">Open in Web Browser</a>
+    </div>
     <div style="height: 50vh;"></div>
     <div class="animate-me">
         <div class="grids">
@@ -35,7 +37,7 @@
                 <p>Calc X supports functions to do any equation needed!</p>
             </div>
             <div class="list">
-                <img src="images/001.png" style="border-radius: 10px;" width="400" height="400" draggable="false">
+                <img src="images/001.png" style="border-radius: 10px;" class="exa" draggable="false">
             </div>
         </div>
     </div>
@@ -48,7 +50,7 @@
                 <p>You can interact with the graph shown here.</p>
             </div>
             <div class="list">
-                <iframe src="images/graph.html" style="background-color: white;border-radius: 10px;border: none;" width="400" height="400"></iframe>
+                <iframe src="images/graph.html" style="background-color: white;border-radius: 10px;border: none;" class="exa"></iframe>
             </div>
         </div>
     </div>
@@ -60,7 +62,7 @@
                 <p>Calc X can convert units in a simple, easy to remember command.</p>
             </div>
             <div class="list">
-                <img src="images/003.png" style="border-radius: 10px;" width="400" height="400" draggable="false">
+                <img src="images/003.png" style="border-radius: 10px;" class="exa" draggable="false">
             </div>
         </div>
     </div>
@@ -101,6 +103,19 @@ div.list {
     width: fit-content;
     padding: 20px;
 }
+
+.exa {
+      width: 350px;
+      height: 350px;
+    }
+
+    /* Adjust width for screens wider than 500px */
+    @media (min-width: 501px) {
+      .exa {
+        width: 400px;
+        height: 400px;
+      }
+    }
 </style>
 <script>
 window.addEventListener('scroll', animateOnScroll);
