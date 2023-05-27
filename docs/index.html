@@ -8,7 +8,7 @@
     <link rel="icon" href="icon.png">
 </head>
 <body>
-    <nav>
+    <nav style="position: fixed;">
         <table>
             <tr>
                 <td>
@@ -20,13 +20,66 @@
             </tr>
         </table>
     </nav>
-    <div style="height: 100px;"></div>
+    <div style="height: 160px;"></div>
     <img src="icon.png" height="100px">
     <h1>The simplest calculator app.</h1>
     <p>Calc X is an open-source, free calculator app for MacOS, Windows, Linux, and the web.</p><br>
-    <a href="download.htm" style="text-decoration: none; color: white;background-color: rgb(65, 97, 255);padding: 10px;">Download</a>
-    &nbsp;
-    <a href="web/" style="text-decoration: none; color: rgb(65, 97, 255);background-color: white;padding: 10px;">Open in Web Browser</a>
+    <!-- <a href="download.htm" style="text-decoration: none; color: rgb(65, 97, 255);background-color: white;padding: 10px;">Download</a>
+    &nbsp; -->
+    <a href="web/" style="text-decoration: none; color: white;background-color: rgb(65, 97, 255);padding: 10px;">Open in Web Browser</a>
+    <div style="height: 50vh;"></div>
+    <div class="animate-me">
+        <div class="grids">
+            <div class="list" style="width: 400px;">
+                <h1>Type Any Equation.</h1>
+                <p>Calc X supports functions to do any equation needed!</p>
+            </div>
+            <div class="list">
+                <img src="images/001.png" style="border-radius: 10px;" width="400" height="400" draggable="false">
+            </div>
+        </div>
+    </div>
+    <div style="height: 50px;"></div>
+    <div class="animate-me">
+        <div class="grids">
+            <div class="list" style="width: 400px;">
+                <h1>Graph Equations.</h1>
+                <p>Calc X supports a interactive, easy-to-use graphing engine.</p>
+                <p>You can interact with the graph shown here.</p>
+            </div>
+            <div class="list">
+                <iframe src="images/graph.html" style="background-color: white;border-radius: 10px;border: none;" width="400" height="400"></iframe>
+            </div>
+        </div>
+    </div>
+    <div style="height: 50px;"></div>
+    <div class="animate-me">
+        <div class="grids">
+            <div class="list" style="width: 400px;">
+                <h1>Perform Unit Conversions.</h1>
+                <p>Calc X can convert units in a simple, easy to remember command.</p>
+            </div>
+            <div class="list">
+                <img src="images/003.png" style="border-radius: 10px;" width="400" height="400" draggable="false">
+            </div>
+        </div>
+    </div>
+    <div style="height: 50px;"></div>
+    <div style="padding: 20px;" class="animate-me">
+        <h1>Available anywhere.</h1>
+        <p>You can access Calc X from any device with an internet connection.</p>
+        <a href="web/" style="text-decoration: none; color: white;background-color: rgb(65, 97, 255);padding: 10px;">Open in Web Browser</a>
+    </div>
+    <div style="height: 50px;"></div>
+    <div style="height: 50px;padding: 20px;" class="animate-me">
+        <h1>A work in progress.</h1>
+        <p>Calc X is constantly being updated an improved on.</p>
+        <h2>Upcoming:</h2>
+        <ul>
+            <li>Mac, Windows, and Linux application</li>
+        </ul>
+    </div>
+    <div style="height: 50vh;"></div>
 </body>
 <style>
     body {
@@ -34,5 +87,41 @@
         background-color: rgb(20, 20, 20);
         color: white;
     }
+    .animate-me {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out; /* Add a smooth transition effect */
+}
+div.grids {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.list {
+    display: inline;
+    width: fit-content;
+    padding: 20px;
+}
 </style>
+<script>
+window.addEventListener('scroll', animateOnScroll);
+
+function animateOnScroll() {
+  var elements = document.querySelectorAll('.animate-me');
+
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    var elementPosition = element.getBoundingClientRect().top;
+    var screenHeight = window.innerHeight;
+
+    // Calculate the scroll position to trigger the animation
+    var triggerPosition = screenHeight * (2 / 3);
+
+    if (elementPosition < triggerPosition) {
+      element.style.opacity = 1; /* Show the element */
+    }
+  }
+}
+
+
+</script>
 </html>
